@@ -3,6 +3,7 @@ const controller = require("./transaction.controller")
 const router = express.Router();
 var verifyToken = require('../auth/auth');
 router.post("/login", controller.login)
-router.post("/register",verifyToken, controller.register)
-router.get("/getTransactionById/:transactionId",verifyToken, controller.getTransactionById)
+router.post("/add",verifyToken, controller.register)
+router.get("/transactions/:customerId",verifyToken, controller.getTransactionById)
+router
 module.exports = router 

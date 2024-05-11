@@ -1,3 +1,3 @@
 module.exports = function (app) {
-    app.use('/api/transaction', require('./api/transaction'))
+    app.use('/api', require('./api/transaction'))
 }

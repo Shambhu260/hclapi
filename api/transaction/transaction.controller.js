@@ -15,55 +15,14 @@ exports.register = async function (req,res){
         
   
 }
-exports.getAllEmployee = async function (req,res){
-    try {
-        var employee  = await empModel.find({});
-        if(employee) {
-            res.send({status: true, code: 200, message: "Get All Employee", data: employee})
-        } else {
-            res.send({status: false, code: 405, message: "Oops something went wrong", data: {}})
-        }
-    } catch (error) {
-        res.send({status: true, code: 200, message: "Oops something went wrong"+ error})
-    }
-   
-    }
 
-exports.updateEmployee = async function (req,res) {
-    try {
-        var updateData = req.body    //params
-    var updateEmp = await empModel.findOneAndUpdate({ empId: req.params.empId }, {$set: updateData}, {new: true});
-    if(updateEmp){
-        res.send({status: true, code: 200, message: "Updte Emplyee Successfullt", data: updateData})
-    } else {
-        res.send({status: false, code: 405, message: "Oops something went wrong", data: {}})
-    }
-    } catch (error) {
-        res.send({status: false, code: 405, message: "Oops someying went wrong"+ error})
-    }
-    
-}
-exports.deleteEmployee = async function (req,res){
-    console.log("delete");
-    try {
-        var employee = await empModel.findOneAndDelete({empId: req.params.empId})
-    if(employee){
-        console.log("employee");
-        res.send({status: true, code: 200, message: "Employee Delete Successfully"})
-    } else {
-        res.send({status: false, code: 405, message: "Oops something went wrong"})
-    }
-    } catch (error) {
-        res.send({status: false, code: 405, message: "Oops something went wrong"+ error})
-    }
-    
-}
+
 
 exports.getTransactionById = async function (req,res){
     try {
-        var transaction = await transactionModel.findOne({_id: req.params.transactionId})
+        var transaction = await transactionModel.find({customerId: req.params.customerId})
         if(transaction){
-            res.send({status: true, code: 200, message: "Get Single Transaction", data: transaction})
+            res.send({status: true, code: 200, message: "Get Transaction", data: transaction})
         } else {
             res.send({status: true, code: 200, message: "Oops something went wrong"})
         }
