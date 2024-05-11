@@ -1,3 +1,4 @@
+
 const transactionModel = require("./transaction.model");
 // const jwt = require('jsonwebtoken');
 exports.register = async function (req,res){
@@ -31,13 +32,6 @@ exports.getTransactionById = async function (req,res){
     }
 }
 
-const express = require('express');
-const bodyParser = require('body-parser');
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
-
-const app = express();
-app.use(bodyParser.json());
 
 // Sample user model and storage (in-memory for simplicity)
 const users = [];
